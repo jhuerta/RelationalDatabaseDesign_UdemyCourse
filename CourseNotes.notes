@@ -9,5 +9,93 @@
 ------------------------------------------------------------
 --> => <== <--
 http://www.anyurl.com
-[js][end] [html][end] [c#][end]
+[js][end] [html][end] [c#][end][sql][end]
 
+----- TOOLS -----
+    MySQL Workbench to desigh a DB (no matter the MySQL part)
+
+Database Types:
+    Relational Database (for CRUD operations)
+    Data Warehouse  (for reporting/reading purposes)
+
+----- RELATIONAL DATABASES ------
+    Information is stored in components. 
+    These components are stored in tables.
+    A tables is a collection of data about an object
+
+Benefits:
+    - Avoid duplicated information, both for performance but mainly for consistency
+    - Think about objects and properties
+    - Think about information that is required and optional
+    - Try to avoid store calculated results in the DB. Let the system calcule info based on DB data
+    - Use the same format for same types (like dates)
+    - DATABASE DESIGN
+        #1. DATA MODELING
+            Identify objects and properties. Steps to build the data modeling:
+                Conceptual data model: 
+                    High level model, just names or concepts, easy to understand.
+                    We show connections, but we don't know how they are related
+                Logical data model
+                    Includes properties and type of relationships
+                    It does not needed to include all the properties
+                PHysical data model
+                    Includes type, keys and relationships
+                    Used to create the db itself
+        #2. DETERMINE THE GOAL OF THE DB
+            Think about the problem and solution to solve with the DB: Scope
+            Scope is the limits of what the db is used for
+            Scope will determine what needs to be stored, and what not
+        #3. DETERMINE THE DATA THAT WILL BE stored
+            By talking to people and analyzing the problem that needs to be stored
+        #4. LOOK FOR RULES 
+            Look for exceptions
+            Look for restrictions
+
+---- DATABASE DESIGN PROCESS -----
+#1  SEARCH, IDENTIFY ENTITIES
+        Search for nouns
+#2 USE MySQL WORKBENCH
+    Add a diagram
+    Add tables
+#3  SEARCH, IDENTIFY ATTRIBUTES (columns or fields)
+        Attribute or adjectives or information of the entities
+        Ask for what the entity HAS
+        Determine the type of the attribute
+        Beware of attributes that is a combination of information. This may be divided into fields.
+
+!DO NOT ALLOWED EXCEPTIONS.NO MATTER HOW RARE THE COMBINATION OF DATA CAN BE, IF ITS POSSIBLE IT IS ALREADY AN SMELL
+---- RELATIONSHIP BETWEEN TABLES -----
+    - One to Many: One X has many Y
+    - One to One: One X has one and only one Y and viceversa
+    - Many to Many:     Many X has many Y - Not ideal, should be described in a different way
+                        It is hard to mantain
+                        Can be worked out by having an intermdediary table XY
+    Self relationship: A table reference to itself
+
+---- NORMALIZATION -----
+- Convert a databaseinto a "normal form" database
+- A normal form helps on efficienty and effectivity. 
+- It contributes to eliminates inconsistencies and removes duplicates
+- Involves redistributing columns and data
+- It requires to go throug 3 levels of normalization or aka normal forms. These normal forms are achieved in sequence: 1NF, 2NF, 3NF
+    ===> "1NF" - First Normal form
+        !A combination of all columns should identify a unique row
+        What field/fields indentify a record. Identify the primary key
+        Can be achieved with a primary key: unique value in a field in a table (in a column)
+        Identify, split combination of data that are into single columns
+        Does not use as primary key a field that could change
+        Even if a field is unique, if it can change its value, it should be used as PK
+        It is not required INT ID in every table, but it is a preference to have a value that does not change as a primary key
+
+    ===> "2NF" - Second Normal form
+        ! 1.It should full the 1NF
+        ! 2. Each non-key attribute must be functionally dependant on the primary key:
+                1. The attribute is determined by the primary key
+                2. It is specific to the record
+
+
+
+
+
+
+        
