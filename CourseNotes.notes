@@ -92,8 +92,24 @@ Benefits:
         ! 2. Each non-key attribute must be functionally dependant on the primary key:
                 1. The attribute is determined by the primary key
                 2. It is specific to the record
+    ===> "3NF" - Third Normal form
+        !Has no transitive functional dependendency:
+            1. THe non primary attributes depend only on the primary key. There may attributes that a grup of them can be determined or will derived based on another one.
 
-
+---- DATABASE DESIGN CONSIDERATION -----
+==> DATA TYPES
+    1. Data type should be enough to hold the information you need considering future conditions
+    2. Data type should be consistent across similar fields
+    3. The limit in the size of data field is the common sense.
+==> INTEGRITY CONSTRAINTS
+    1. Restrictions in the data respect the table or database
+    2. Example: Null, Not Null, Data Range, number lenght, precission, text value/prefix
+==> NAMING CONVENTIONS
+    1. Applies to tables and columns
+    2. Avoid spaces: replace with camel case or _
+    3. How to identify primary keys (id, Id, _id)
+    4. Be consistent
+==> LOOK UP TABLES (REFERENCE TABLES) AND AUDITING
 
 
 
